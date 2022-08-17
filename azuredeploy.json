@@ -159,16 +159,16 @@
         },
         "zone": {
           "type": "string",
-		"defaultValue: "1",
-		"allowedValues": [
-		  "1",
-		  "2",
-		  "3"
+          "allowedValues" : [
+              "1",
+              "2",
+              "3"
           ],
           "metadata": {
             "description": "Zone number for the virtual machine"
-          }
-        },                    
+          },
+		  "defaultValue" : "1"
+        },
         "SubscriptionEmail": {
           "type": "string",
           "metadata": {

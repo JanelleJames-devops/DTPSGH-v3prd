@@ -3,7 +3,7 @@ This ARM template is used to install SAP HANA on a single VM running SUSE SLES 1
 
 This template uses the Linux SKU for SAP. The template takes advantage of [Custom Script Extensions](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) for the installation and configuration of the machine. This should be used only for the dev POC environment. This is not a production deployment.
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDTPSGH-v3stg%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDTPSGH-v3prd%2Fmaster%2Fazuredeploy.json)
 ## Machine Info
 The template was originally written to deploy HANA on one of the machines listed in the table below with the noted disk configuration.  Modification to disk sizes has been made per Deloitte SME and Microsoft SME suggestions of data=3xRAM, logs=2xRAM (with 2TB Max) and stripe sizes of 256 (data) and 64 (log) for the M64s machine image.  Disk sizes for other machine images is TBD.  The deployment takes advantage of Managed Disks, for more information on Managed Disks or the sizes of the noted disks can be found on [this](https://docs.microsoft.com/en-us/azure/storage/storage-managed-disks-overview#pricing-and-billing) page.
 
@@ -31,19 +31,19 @@ Installation media for SAP HANA should be downloaded and placed in the SapBits f
 
 There should be a folder inside your storage account container called SapBits:
 
-![SapBits Image](https://github.com/JanelleJames-devops/DTPSGH-v3stg/blob/master/media/Structure1.png)
+![SapBits Image](https://github.com/JanelleJames-devops/DTPSGH-v3prd/blob/master/media/Structure1.png)
 
 ## Deploy the Solution
 ### Deploy from the Portal
 
-To deploy from the portal using a graphic interface you can use the [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDTPSGH-v3stg%2Fmaster%2Fazuredeploy.json) button to bring up the template in your subscription and fill out the parameters.
+To deploy from the portal using a graphic interface you can use the [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FJanelleJames-devops%2FDTPSGH-v3prd%2Fmaster%2Fazuredeploy.json) button to bring up the template in your subscription and fill out the parameters.
 
 ### Deploy from Powershell
 
 ```powershell
 New-AzureRmResourceGroup -Name HANADeploymentRG -Location "East US2"
 New-AzureRmResourceGroupDeployment -Name HANADeployment -ResourceGroupName HANADeploymentRG `
-  -TemplateUri https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3stg/master/azuredeploy.json `
+  -TemplateUri https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3prd/master/azuredeploy.json `
   -VMName HANAtestVM -HANAJumpbox yes -CustomURI https://yourBlobName.blob.core.windows.net/yourContainerName -VMPassword AweS0me@PW
 ```
 
@@ -55,7 +55,7 @@ az group create --name HANADeploymentRG --location "East US2"
 az group deployment create \
     --name HANADeployment \
     --resource-group HANADeploymentRG \
-    --template-uri "https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3stg/master/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3prd/master/azuredeploy.json" \
     --parameters VMName=HANAtestVM HANAJumpbox=no CustomURI=https://yourBlobName.blob.core.windows.net/yourContainerName VMPassword=AweS0me@PW
 ```
 ## Monitoring
@@ -90,19 +90,19 @@ Subscription ID | No | OS ID or password for BYOS. Leave blank for pay-as-you-go
 SMT Uri | No | The URI to a subscription management server if used, blank otherwise |  | No restrictions
 ## Known issues
 ### When clicking on Deploy to Azure you get redirected to an empty directory
-![Directories](https://github.com/JanelleJames-devops/DTPSGH-v3stg/blob/master/media/directories.png)
+![Directories](https://github.com/JanelleJames-devops/DTPSGH-v3prd/blob/master/media/directories.png)
 
 The only way to get around this is to save the template to your own template library. Click on "Create a Resource" and choose "Template Deployment". Click "Create".
 
-![Directories2](https://github.com/JanelleJames-devops/DTPSGH-v3stg/blob/master/media/directories2.png)
+![Directories2](https://github.com/JanelleJames-devops/DTPSGH-v3prd/blob/master/media/directories2.png)
 
 Select the option of "Build your own template in the editor"
 
-![Directories3](https://github.com/JanelleJames-devops/DTPSGH-v3stg/blob/master/media/directories3.png)
+![Directories3](https://github.com/JanelleJames-devops/DTPSGH-v3prd/blob/master/media/directories3.png)
 
-Copy the contents from the azuredeploy.json [file](https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3stg/master/azuredeploy.json) and paste them into the template editor, click Save.
+Copy the contents from the azuredeploy.json [file](https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3prd/master/azuredeploy.json) and paste them into the template editor, click Save.
 
-![Directories4](https://github.com/JanelleJames-devops/DTPSGH-v3stg/blob/master/media/directories4.png)
+![Directories4](https://github.com/JanelleJames-devops/DTPSGH-v3prd/blob/master/media/directories4.png)
 
 The template is now available in your template library. Changes made to the github repo will not be replicated, make sure to update your template when changes to the azuredeploy.json file are made.
 
