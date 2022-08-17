@@ -463,13 +463,9 @@
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log2'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log3'))]",
-                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log4'))]",
-                "[resourceId('Microsoft.Compute/availabilitySets', parameters('AvailSetName'))]"
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-log4'))]"
             ],
-            "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('AvailSetName'))]"
-                  },                
+            "properties": {              
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
                 },
