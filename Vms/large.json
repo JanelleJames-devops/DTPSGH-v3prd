@@ -91,12 +91,12 @@
             },
             "defaultValue": "10.0.5.4"
         },
-        "AvailSetName": {
+        "zone": {
             "type": "string",
             "metadata": {
-              "description": "This is the name of the availability set to deploy the machine in"
+              "description": "Zone number for the virtual machine"
             },
-            "defaultValue": ""
+            "defaultValue": "1"
           },            
         "SubscriptionEmail": {
             "type": "string",
@@ -442,23 +442,11 @@
             }
         },
         {
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[parameters('AvailSetName')]",
-            "apiVersion": "2017-03-30",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Aligned"
-            },
-            "properties": {
-                "platformFaultDomainCount": 3,
-                "platformUpdateDomainCount": 20
-            }
-        },
-        {
             "apiVersion": "[variables('api-version-vm')]",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('vmName')]",
             "location": "[resourceGroup().location]",
+            "zones": "[parameters('zone')]",
             "tags": "[parameters('resourceTags')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",

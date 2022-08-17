@@ -5,6 +5,9 @@
         "VMName": {
             "value": "jmj121"
         },
+        "zone": {
+            "value": "1"
+        },
         "HANAJumpbox": {
             "value": "no"
         },

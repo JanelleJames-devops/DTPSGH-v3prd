@@ -167,7 +167,7 @@
           "metadata": {
             "description": "Zone number for the virtual machine"
           },
-		  "defaultValue" : "1"
+          "defaultValue" : "1"
         },
         "SubscriptionEmail": {
           "type": "string",
