@@ -157,12 +157,17 @@
           },
           "defaultValue": "10.212.250.151"
         },
-        "AvailSetName": {
+        "zone": {
           "type": "string",
+		"defaultValue: "1",
+		"allowedValues": [
+		  "1",
+		  "2",
+		  "3"
+          ],
           "metadata": {
-            "description": "This is the name of the availability set to deploy the machine in"
-          },
-          "defaultValue": "hana-avail"
+            "description": "Zone number for the virtual machine"
+          }
         },                    
         "SubscriptionEmail": {
           "type": "string",
@@ -282,8 +287,8 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
+                    "zone": {
+                        "value": "[parameters('zone')]"
                       },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
@@ -348,8 +353,8 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
+                    "zone": {
+                        "value": "[parameters('zone')]"
                       },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
@@ -414,8 +419,8 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
+                    "zone": {
+                        "value": "[parameters('zone')]"
                       },
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
@@ -479,8 +484,8 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
+                    "zone": {
+                        "value": "[parameters('zone')]"
                       },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
@@ -544,8 +549,8 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "AvailSetName": {
-                        "value": "[parameters('AvailSetName')]"
+                    "zone": {
+                        "value": "[parameters('zone')]"
                       },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
