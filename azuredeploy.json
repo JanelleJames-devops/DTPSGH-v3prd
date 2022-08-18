@@ -35,7 +35,7 @@
             "metadata": {
                 "description": "VM Size"
             },
-            "defaultValue": "Standard_M192ids_v2 (2 TB, Certified)",
+            "defaultValue": "Standard_M192idms_v2 (4 TB, Certified)",
             "allowedValues": [
                 "Standard_E16s_v3 (128 GB)",
                 "Standard_E32s_v3 (256 GB)",
@@ -48,7 +48,7 @@
         },   
         "NetworkName": {
             "type": "string",
-            "defaultValue": "AZ-EUS2-TAX-NPD-DCMSHARED-PSGAPPS-VNET",
+            "defaultValue": "AZ-EUS-TAX-PRD-PSG-VNET-01",
             "metadata": {
                 "description": "VNet name to create or name of existing one to join"
             }
@@ -62,7 +62,7 @@
         },
         "HANASubnetName": {
             "type": "string",
-            "defaultValue": "psgdev-subnet",
+            "defaultValue": "psgprd-subnet",
             "metadata": {
                 "description": "Subnet name to create or name of existing one to join"
             }
@@ -90,7 +90,7 @@
         },
         "customURI": {
             "type": "string",
-            "defaultValue": "https://azuse2dsapsto01.blob.core.windows.net/sapmediastaging/SapBits/51054623.ZIP",
+            "defaultValue": "https://sapmediastagingp.blob.core.windows.net/hanainstallfiles/SapBits/51054623.ZIP",
             "metadata": {
                 "description": "Please enter a SAS URL to the .ZIP file"
             }
@@ -123,7 +123,7 @@
             "metadata": {
                 "description": "SAP HANA System ID"
             },
-            "defaultValue": "H10"
+            "defaultValue": "P2P"
         },
         "HANANumber": {
             "type": "string",
@@ -155,7 +155,7 @@
           "metadata": {
             "description": "IP Address for the HANA VM when Static IP Allocation Method has been selected"
           },
-          "defaultValue": "10.212.250.151"
+          "defaultValue": "10.212.253.125"
         },
         "zone": {
           "type": "string",

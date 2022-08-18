@@ -1,12 +1,9 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "VMName": {
             "value": "jmj121"
-        },
-        "zone": {
-            "value": "1"
         },
         "HANAJumpbox": {
             "value": "no"
@@ -58,6 +55,9 @@
         },
         "StaticIP": {
           "value":  "10.0.5.4"
+        },
+        "zone": {
+            "value": "1"
         }               
     }
 }
