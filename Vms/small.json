@@ -90,14 +90,7 @@
                 "description": "IP Address for the HANA VM when Static IP Allocation Method has been selected"
             },
             "defaultValue": "10.0.5.4"
-        },
-        "AvailSetName": {
-            "type": "string",
-            "metadata": {
-              "description": "This is the name of the availability set to deploy the machine in"
-            },
-            "defaultValue": ""
-          },            
+        },           
         "SubscriptionEmail": {
             "type": "string",
             "metadata": {
@@ -307,19 +300,6 @@
             }
         },        
         {
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[parameters('AvailSetName')]",
-            "apiVersion": "2017-03-30",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Aligned"
-            },
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 5
-            }
-        },
-        {
             "apiVersion": "[variables('api-version-vm')]",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('vmName')]",
@@ -331,13 +311,9 @@
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-backup1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data1'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data2'))]",
-                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data3'))]",
-                "[resourceId('Microsoft.Compute/availabilitySets', parameters('AvailSetName'))]"
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-data3'))]"
             ],
-            "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('AvailSetName'))]"
-                  },                
+            "properties": {              
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
                 },

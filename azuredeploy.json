@@ -205,7 +205,9 @@
     "HANAsubnetRef": "[if (equals(parameters('ExistingNetworkResourceGroup'), 'no') , concat(variables('vnetID'),'/subnets/',parameters('HANASubnetName')),concat(resourceId(parameters('ExistingNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/', parameters('NetworkName')), '/subnets/',parameters('HANASubnetName')))]",
     "mgmtSubnetRef": "[if (equals(parameters('ExistingNetworkResourceGroup'), 'no') , concat(variables('vnetID'),'/subnets/',parameters('ManagementSubnetName')),concat(resourceId(parameters('ExistingNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/', parameters('NetworkName')), '/subnets/',parameters('ManagementSubnetName')))]",
     "vmSizeArray": "[split(parameters('vmSize'),' ')]",
-    "vmSize": "[variables('vmSizeArray')[0]]"
+    "vmSize": "[variables('vmSizeArray')[0]]",
+    "zoneArray": "[split(parameters('zone'),' ')]",
+    "zone": "[variables('zoneArray')[0]]"
 },
     "resources": [
 
@@ -244,41 +246,41 @@
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
-              ],
+            ],
             "properties": {
               "mode": "Incremental",
                 "templateLink": {
                     "uri": "[variables('smallUri')]"
                 },
                 "parameters": {
-                    "HanaVersion": {
+                    "HanaVersion":{
                         "value": "[parameters('HanaVersion')]"
                     },               
-                    "vmName": {
+                    "vmName":{
                         "value": "[parameters('vmName')]"
                     },
-                    "customUri": {
+                    "customUri":{
                         "value": "[parameters('customUri')]"
                     },
-                    "HANAsubnetRef": {
+                    "HANAsubnetRef":{
                         "value": "[variables('HANAsubnetRef')]"
                     },
-                    "OperatingSystem": {
+                    "OperatingSystem":{
                         "value": "[parameters('OperatingSystem')]"
                     },
-                    "vmUserName": {
+                    "vmUserName":{
                         "value": "[parameters('vmUserName')]"
                     },
-                    "vmPassword": {
+                    "vmPassword":{
                         "value": "[parameters('vmPassword')]"
                     },
-                    "hanaSid": {
+                    "hanaSid":{
                         "value": "[parameters('hanaSid')]"
                     },
-                    "hanaNumber": {
+                    "hanaNumber":{
                         "value": "[parameters('hanaNumber')]"
                     },
-                    "vmSize": {
+                    "vmSize":{
                         "value": "[variables('vmSize')]"
                     },
                     "IPAllocationMethod":{
@@ -287,9 +289,9 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "zone": {
+                    "zone":{
                         "value": "[parameters('zone')]"
-                      },                             
+                    },                             
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },

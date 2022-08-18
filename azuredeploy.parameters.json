@@ -9,7 +9,7 @@
             "value": "no"
         },
         "VMSize": {
-            "value": "Standard_M64s (1 TB, Certified)"
+            "value": "Standard_M192idms_v2 (4 TB, Certified)"
         },
         "NetworkName": {
             "value": "ra-sap-hana-vnet"
@@ -42,7 +42,7 @@
             "value":  "SLES for SAP 15 SP2"
         },
         "HANASID": {
-            "value":  "H10"
+            "value":  "P2P"
         },
         "HANANumber": {
             "value": "00"
@@ -58,6 +58,6 @@
         },
         "zone": {
             "value": "1"
-        }               
+        }              
     }
 }
