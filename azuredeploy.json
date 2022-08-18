@@ -247,6 +247,9 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
             ],
+            "zones": [
+                "[parameters('zone')]"
+            ],
             "properties": {
               "mode": "Incremental",
                 "templateLink": {
@@ -288,10 +291,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "zone":{
-                        "value": "[parameters('zone')]"
-                    },                             
+                    },                            
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -312,6 +312,9 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
+            "zones": [
+                "[parameters('zone')]"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -354,10 +357,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "zone": {
-                        "value": "[parameters('zone')]"
-                      },                             
+                    },                            
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -378,6 +378,9 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
                 ],
+            "zones": [
+                "[parameters('zone')]"
+            ],
                 "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -421,9 +424,6 @@
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
                     },
-                    "zone": {
-                        "value": "[parameters('zone')]"
-                      },
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -444,6 +444,9 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
+            "zones": [
+                "[parameters('zone')]"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -485,10 +488,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "zone": {
-                        "value": "[parameters('zone')]"
-                      },                             
+                    },                           
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
@@ -508,7 +508,9 @@
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
-              ],
+            ],
+            "zones":["[parameters('zone')]"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -550,10 +552,7 @@
                     },
                     "StaticIP":{
                         "value": "[parameters('StaticIP')]"
-                    },
-                    "zone": {
-                        "value": "[parameters('zone')]"
-                      },                             
+                    },                            
                     "SubscriptionEmail":{
                         "value": "[parameters('SubscriptionEmail')]"
                     },
