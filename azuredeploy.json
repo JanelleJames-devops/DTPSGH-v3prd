@@ -378,9 +378,7 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
                 ],
-            "zones": [
-                "[parameters('zone')]"
-            ],
+            "zones": "[parameters('zone')]",
                 "properties": {
                 "mode": "Incremental",
                 "templateLink": {
