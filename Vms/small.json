@@ -372,24 +372,8 @@
                 },
                 "diskSizeGB": "[variables('diskConfig').data5]"
             }
-        }, 
+        },
         {
-            "type": "Microsoft.Compute/disks",
-            "name": "[concat(parameters('vmName'),'-data6')]",
-            "apiVersion": "2018-04-01",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Premium_LRS",
-                "tier": "Premium"
-            },
-            "properties": {
-                "creationData": {
-                    "createOption": "Empty"
-                },
-                "diskSizeGB": "[variables('diskConfig').data6]"
-            }
-        },   
-                {
             "type": "Microsoft.Compute/disks",
             "name": "[concat(parameters('vmName'),'-data6')]",
             "apiVersion": "2018-04-01",
