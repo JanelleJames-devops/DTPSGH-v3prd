@@ -55,7 +55,7 @@
         },
         "addressPrefixes": {
             "type": "string",
-            "defaultValue": "10.212.251.0/23",
+            "defaultValue": "10.212.244.0/23",
             "metadata": {
                 "description": "The VNET prefix"
             }
@@ -69,7 +69,7 @@
         },
         "HANASubnetPrefix": {
             "type": "string",
-            "defaultValue": "10.212.250.0/24",
+            "defaultValue": "10.212.252.0/23",
             "metadata": {
                 "description": "The subnet prefix"
             }
