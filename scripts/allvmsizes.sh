@@ -98,7 +98,7 @@ pvcreate -ff -y  /dev/disk/azure/scsi1/lun3
 pvcreate -ff -y  /dev/disk/azure/scsi1/lun4
 pvcreate -ff -y  /dev/disk/azure/scsi1/lun5
 
-if [ $VMSIZE == "Standard_E16s_v3" ] || [ "$VMSIZE" == "Standard_E32s_v3" ] || [ "$VMSIZE" == "Standard_E64s_v3" ] || [ "$VMSIZE" == "Standard_GS5" ] || [ "$VMSIZE" == "Standard_M32ts" ] || [ "$VMSIZE" == "Standard_M32ls" ] || [ "$VMSIZE" == "Standard_M64ls" ] || [ "$VMSIZE" == "Standard_DS14_v2" ] ; then
+if [ "$VMSIZE" == "Standard_E32s_v3" ] || [ "$VMSIZE" == "Standard_E64s_v3" ] || [ "$VMSIZE" == "Standard_GS5" ] || [ "$VMSIZE" == "Standard_M32ts" ] || [ "$VMSIZE" == "Standard_M32ls" ] || [ "$VMSIZE" == "Standard_M64ls" ] || [ "$VMSIZE" == "Standard_DS14_v2" ] ; then
 echo "logicalvols start" >> /tmp/parameter.txt
   #shared volume creation
   sharedvglun="/dev/disk/azure/scsi1/lun0"
@@ -136,7 +136,7 @@ echo "logicalvols start" >> /tmp/parameter.txt
 echo "logicalvols end" >> /tmp/parameter.txt
 fi
 
-if [ "$VMSIZE" == "Standard_M64s" ] || [ "$VMSIZE" == "Standard_M192ids_v2" ] || [ "$VMSIZE" == "Standard_M192idms_v2" ]; then
+if [ "$VMSIZE" == "Standard_M64s" ] || [ "$VMSIZE" == "Standard_E16s_v3" ] || [ "$VMSIZE" == "Standard_M192ids_v2" ] || [ "$VMSIZE" == "Standard_M192idms_v2" ]; then
   #this is the medium and large size
   # this assumes that 6 disks are attached at lun 0 through 5
   echo "Creating partitions and physical volumes"
@@ -164,26 +164,27 @@ if [ "$VMSIZE" == "Standard_M64s" ] || [ "$VMSIZE" == "Standard_M192ids_v2" ] ||
   #backup volume creation
   backupvg1lun="/dev/disk/azure/scsi1/lun2"
   backupvg2lun="/dev/disk/azure/scsi1/lun3"
-  vgcreate backupvg $backupvg1lun $backupvg2lun
+  backupvg3lun="/dev/disk/azure/scsi1/lun4"
+  vgcreate backupvg $backupvg1lun $backupvg2lun $backupvg3lun
   lvcreate -l 100%FREE -n backuplv backupvg 
 
   #data volume creation
-  datavg1lun="/dev/disk/azure/scsi1/lun4"
-  datavg2lun="/dev/disk/azure/scsi1/lun5"
-  datavg3lun="/dev/disk/azure/scsi1/lun6"
-  datavg4lun="/dev/disk/azure/scsi1/lun7"
-  datavg5lun="/dev/disk/azure/scsi1/lun8"
-  datavg6lun="/dev/disk/azure/scsi1/lun9"
+  datavg1lun="/dev/disk/azure/scsi1/lun5"
+  datavg2lun="/dev/disk/azure/scsi1/lun6"
+  datavg3lun="/dev/disk/azure/scsi1/lun7"
+  datavg4lun="/dev/disk/azure/scsi1/lun8"
+  datavg5lun="/dev/disk/azure/scsi1/lun9"
+  datavg6lun="/dev/disk/azure/scsi1/lun10"
   vgcreate datavg $datavg1lun $datavg2lun $datavg3lun $datavg4lun $datavg5lun $datavg6lun
   PHYSVOLUMES=6
   STRIPESIZE=256
   lvcreate -i$PHYSVOLUMES -I$STRIPESIZE -l 100%FREE -n datalv datavg
 
   #log volume creation
-  logvg1lun="/dev/disk/azure/scsi1/lun10"
-  logvg2lun="/dev/disk/azure/scsi1/lun11"
+  logvg1lun="/dev/disk/azure/scsi1/lun11"
+  logvg2lun="/dev/disk/azure/scsi1/lun12"
   logvg3lun="/dev/disk/azure/scsi1/lun12"
-  logvg4lun="/dev/disk/azure/scsi1/lun13"
+  logvg4lun="/dev/disk/azure/scsi1/lun14"
   vgcreate logvg $logvg1lun $logvg2lun $logvg3lun $logvg4lun
   PHYSVOLUMES=4
   STRIPESIZE=64

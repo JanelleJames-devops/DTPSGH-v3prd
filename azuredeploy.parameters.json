@@ -3,25 +3,25 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "VMName": {
-            "value": "jmj121"
+            "value": "usazutaxp012"
         },
         "HANAJumpbox": {
             "value": "no"
         },
         "VMSize": {
-            "value": "Standard_M192idms_v2 (4 TB, Certified)"
+            "value": "Standard_E16s_v3 (128 GB)"
         },
         "NetworkName": {
-            "value": "ra-sap-hana-vnet"
+            "value": "AZ-EUS-TAX-PRD-PSG-VNET-01"
         },
         "addressPrefixes": {
-            "value": "10.0.0.0/16"
+            "value": "10.212.244.0/23"
         },
         "HANASubnetName": {
-            "value": "SAPDataSubnet"
+            "value": "psgprd-subnet"
         },
         "HANASubnetPrefix": {
-            "value": "10.0.5.0/24"
+            "value": "10.212.252.0/23"
         },
         "ManagementSubnetName": {
             "value": "SAPMgmtSubnet"
@@ -30,10 +30,10 @@
             "value": "10.0.6.0/24"
         },
         "customURI": {
-            "value": "https://jmjazurestorage1.blob.core.windows.net/sapmediastaging"            
+            "value": "https://sapmediastagingp.blob.core.windows.net/hanainstallfiles/SapBits/51054623.ZIP"            
         },
         "VMUserName": {
-            "value": "usa-jjames"
+            "value": "testuser"
         },
         "VMPassword": {
             "value": "YourPassword"
@@ -42,7 +42,7 @@
             "value":  "SLES for SAP 15 SP2"
         },
         "HANASID": {
-            "value":  "P2P"
+            "value":  "POC"
         },
         "HANANumber": {
             "value": "00"
@@ -51,7 +51,7 @@
             "value": "no"
         },
         "IPAllocationMethod": {
-            "value": "Static"
+            "value": "Dynamic"
         },
         "StaticIP": {
           "value":  "10.0.5.4"
