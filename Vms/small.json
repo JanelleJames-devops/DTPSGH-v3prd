@@ -111,6 +111,13 @@
                 "description": "SMT Uri, blank for none"
             },
             "DefaultValue": ""
+        },
+        "resourceTags": {
+            "type": "object",
+            "defaultValue": {
+               "ENVIRONMENT": "PRD",
+               "InstallVMExtension": {"extensionName":"SAP","version":"optional","status":"new"}
+            }
         }
     },
     "variables": {
