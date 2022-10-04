@@ -117,7 +117,7 @@
         "api-version": "2018-04-01",
         "api-version-vm": "2018-04-01",
         "mode": "Push",
-        "baseUri": "https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3stg/master/",
+        "baseUri": "https://raw.githubusercontent.com/JanelleJames-devops/DTPSGH-v3prd/master/",
         "nicName": "[if (equals(parameters('IPAllocationMethod'),'Static'), concat(parameters('vmName'),'-static'), concat(parameters('vmName'),'-dynamic'))]",
         "subnetRef": "[parameters('HANASubnetRef')]",
         "OperatingSystemSpec": {
