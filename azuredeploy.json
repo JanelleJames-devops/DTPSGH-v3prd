@@ -233,9 +233,6 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
             ],
-            "zones": [
-                "[parameters('zone')]"
-            ],
             "properties": {
               "mode": "Incremental",
                 "templateLink": {
@@ -298,9 +295,6 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
-            "zones": [
-                "[parameters('zone')]"
-            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -364,7 +358,6 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
                 ],
-            "zones": "[parameters('zone')]",
                 "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -428,9 +421,6 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
               ],
-            "zones": [
-                "[parameters('zone')]"
-            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -492,8 +482,6 @@
             "type": "Microsoft.Resources/deployments",
             "dependsOn": [
                 "[concat('Microsoft.Network/virtualNetworks/', parameters('NetworkName'))]"
-            ],
-            "zones":["[parameters('zone')]"
             ],
             "properties": {
                 "mode": "Incremental",
