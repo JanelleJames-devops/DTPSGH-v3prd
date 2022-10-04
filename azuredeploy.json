@@ -157,9 +157,6 @@
           },
           "defaultValue": "10.212.253.125"
         },
-        "zone": {
-          "type": "string"
-        },
         "SubscriptionEmail": {
           "type": "string",
           "metadata": {
