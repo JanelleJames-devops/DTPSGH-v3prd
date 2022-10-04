@@ -116,6 +116,7 @@
             "type": "object",
             "defaultValue": {
                "ENVIRONMENT": "PRD",
+               "FUNCTION": "TAX",
                "InstallVMExtension": {"extensionName":"SAP","version":"optional","status":"new"}
             }
         }
