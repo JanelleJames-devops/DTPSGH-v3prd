@@ -115,9 +115,7 @@
         "resourceTags": {
             "type": "object",
             "defaultValue": {
-               "ENVIRONMENT": "PRD",
-               "FUNCTION": "TAX",
-               "InstallVMExtension": {"extensionName":"SAP","version":"optional","status":"new"}
+               "ENVIRONMENT": "PRD"
             }
         }
     },
@@ -185,7 +183,7 @@
             "name": "[concat(parameters('vmName'),'-dynamic')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "enableAcceleratedNetworking": false,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
@@ -206,7 +204,7 @@
             "name": "[concat(parameters('vmName'),'-static')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "enableAcceleratedNetworking": false,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
@@ -466,6 +464,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('vmName')]",
             "location": "[resourceGroup().location]",
+            "tags": "[parameters('resourceTags')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
                 "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-shared'))]",
